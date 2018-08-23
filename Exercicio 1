@@ -1,0 +1,33 @@
+package br.edu.fjn.progIII;
+import java.io.IOException;
+import java.io.PrintWriter;
+import static java.time.Clock.system;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/WebExercicio")
+public class ServidorHttpJava extends HttpServlet{
+    
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("A Requisição chegou");
+    }
+@Override 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String User = request.getParameter("User");
+        String Password = request.getParameter("Password");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        OutPrintln("Bem-Vindo" + User);     
+        
+        if(User.equalsIgnoreCase("João") && Password.equalsIgnoreCase("123"))
+                   System.out.println("Bem Vindo" +User);
+    }
+      
+
+    private void OutPrintln(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}
